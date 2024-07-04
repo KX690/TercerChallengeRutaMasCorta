@@ -44,12 +44,12 @@ def imprimir_matriz(matriz):
                     
             elif matriz[i][j]==1:
                 print(f'\033[31m{celda}\033[0m', end=' ')
-            elif matriz[i][j]=='#':
+            elif matriz[i][j]=='#':                                         # El # indica el recorrido que uso, se imprime en amarillo
                 print(f'\033[33m{celda}\033[0m', end=' ')
-            elif matriz[i][j]=='*':
+            elif matriz[i][j]=='*':                                         # El * indica los obstaculos, se imprime en azul
                 print(f'\033[34m{celda}\033[0m', end=' ')
                 
-            elif matriz[i][j]=='P' or matriz[i][j]=='S':
+            elif matriz[i][j]=='S' or matriz[i][j]=='E':                    # La S indica la llegada y la E indica la salida
                 print(f'\033[35m{celda}\033[0m', end=' ')
                 
                 
@@ -118,9 +118,9 @@ def main():
         
         for (x, y) in camino:
             if (x, y) == entrada :
-                matriz[x][y] = 'S'
+                matriz[x][y] = 'E'
             elif (x, y) == salida:
-                matriz[x][y] = 'P'
+                matriz[x][y] = 'S'
             elif (x, y) != entrada or (x, y) != salida:
                 matriz[x][y]='#'
         imprimir_matriz(matriz)
